@@ -1,6 +1,6 @@
 # Un-Supervised-learning
-Unsupervised Learning Project
-📌 Project Overview
+1.Unsupervised Learning Project
+ Project Overview
 
 The Unsupervised Learning Project is a Machine Learning project that works with data without predefined labels.
 
@@ -8,14 +8,14 @@ In this project, the machine learning algorithm finds patterns, groups, and rela
 
 The main goal of this project is to understand how unsupervised learning can be used to discover useful information from a dataset.
 
-🎯 Objectives
+2.Objectives
 Understand the concept of Unsupervised Learning.
 Analyze data without predefined labels.
 Find similar groups of data.
 Identify patterns in the dataset.
 Apply clustering techniques.
 Visualize the results.
-🧠 What is Unsupervised Learning?
+3.What is Unsupervised Learning?
 
 Unsupervised Learning is a type of Machine Learning where the model learns from unlabeled data.
 
@@ -23,7 +23,7 @@ Unlike supervised learning, there is no predefined output or target value.
 
 The algorithm tries to find hidden patterns and groups in the data.
 
-⚙️ Algorithm Used
+ Algorithm Used
 K-Means Clustering
 
 In this project, K-Means Clustering can be used to divide the dataset into different groups called clusters.
@@ -41,7 +41,7 @@ Purchase history
 
 This can help businesses understand different types of customers.
 
-🔄 How the Project Works
+4.How the Project Works
 Load the dataset.
 Understand and analyze the data.
 Clean the data if required.
@@ -50,20 +50,20 @@ Apply the K-Means clustering algorithm.
 Divide the data into different clusters.
 Visualize the clusters.
 Analyze the results.
-🛠️ Technologies Used
+5. Technologies Used
 Python
 Pandas
 NumPy
 Matplotlib
 Scikit-learn
 Jupyter Notebook / VS Code
-📊 Project Output
+6. Project Output
 
 The project displays different clusters created by the Machine Learning algorithm.
 
 The visualization helps us understand how the data points are grouped based on their similarities.
 
-📂 Project Structure
+7. Project Structure
 Unsupervised-Learning/
 │
 ├── dataset/
@@ -72,7 +72,7 @@ Unsupervised-Learning/
 ├── Unsupervised_Learning.ipynb
 ├── README.md
 └── requirements.txt
-💡 Applications
+8. Applications
 
 Unsupervised Learning can be used in:
 
@@ -83,7 +83,7 @@ Anomaly Detection
 Image Segmentation
 Pattern Recognition
 Data Analysis
-🚀 Future Improvements
+9. Future Improvements
 
 The project can be improved by:
 
@@ -92,7 +92,7 @@ Testing different datasets.
 Adding more visualizations.
 Comparing K-Means with other algorithms.
 Building a web application for the project.
-🎓 Learning Outcomes
+10.Learning Outcomes
 
 Through this project, I learned:
 
