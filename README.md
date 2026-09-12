@@ -1,110 +1,131 @@
-# Un-Supervised-learning
-1.Unsupervised Learning Project
- Project Overview
+# Customer Segmentation using K-Means Clustering
 
-The Unsupervised Learning Project is a Machine Learning project that works with data without predefined labels.
+## Project Overview
 
-In this project, the machine learning algorithm finds patterns, groups, and relationships in the given data automatically.
+Customer Segmentation is a Machine Learning project that groups customers into different segments based on their income and spending behavior.
 
-The main goal of this project is to understand how unsupervised learning can be used to discover useful information from a dataset.
+This project uses the K-Means Clustering algorithm to identify similar groups of customers.
 
-2.Objectives
-Understand the concept of Unsupervised Learning.
-Analyze data without predefined labels.
-Find similar groups of data.
-Identify patterns in the dataset.
-Apply clustering techniques.
-Visualize the results.
-3.What is Unsupervised Learning?
+A Flask web dashboard is also developed to visualize the clusters and predict the cluster of a new customer.
 
-Unsupervised Learning is a type of Machine Learning where the model learns from unlabeled data.
+## Objective
 
-Unlike supervised learning, there is no predefined output or target value.
+The main objectives of this project are:
 
-The algorithm tries to find hidden patterns and groups in the data.
+- To analyze customer income and spending behavior.
+- To divide customers into meaningful groups.
+- To use K-Means Clustering for customer segmentation.
+- To visualize different customer clusters.
+- To predict the cluster of a new customer through a web dashboard.
 
- Algorithm Used
-K-Means Clustering
+## Technologies Used
 
-In this project, K-Means Clustering can be used to divide the dataset into different groups called clusters.
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- Flask
+- Joblib
+- HTML
+- CSS
 
-Each cluster contains data points that are similar to each other.
+## Dataset
 
-Example
+The project uses the Mall Customers dataset.
 
-If we have customer data, K-Means can group customers based on their:
+The dataset contains information such as:
 
-Age
-Income
-Spending behavior
-Purchase history
+- Customer ID
+- Gender
+- Age
+- Annual Income
+- Spending Score
 
-This can help businesses understand different types of customers.
+For clustering, the following two features are used:
 
-4.How the Project Works
-Load the dataset.
-Understand and analyze the data.
-Clean the data if required.
-Select important features.
-Apply the K-Means clustering algorithm.
-Divide the data into different clusters.
-Visualize the clusters.
-Analyze the results.
-5. Technologies Used
-Python
-Pandas
-NumPy
-Matplotlib
-Scikit-learn
-Jupyter Notebook / VS Code
-6. Project Output
+- Annual Income (k$)
+- Spending Score (1-100)
 
-The project displays different clusters created by the Machine Learning algorithm.
+## Machine Learning Algorithm
 
-The visualization helps us understand how the data points are grouped based on their similarities.
+### K-Means Clustering
 
-7. Project Structure
-Unsupervised-Learning/
+K-Means is an unsupervised Machine Learning algorithm used to divide data into groups called clusters.
+
+In this project, K-Means is used to group customers based on:
+
+- Annual Income
+- Spending Score
+
+## Elbow Method
+
+The Elbow Method was used to determine the suitable number of clusters.
+
+The analysis showed that:
+
+**Optimal Number of Clusters = 5**
+
+## Model Evaluation
+
+The clustering model was evaluated using the Silhouette Score.
+
+**Silhouette Score = 0.55**
+
+A score around 0.55 indicates reasonably good separation between the customer clusters.
+
+## Customer Segments
+
+The customers are divided into five clusters:
+
+### Cluster 0
+Medium-income customers with moderate spending behavior.
+
+### Cluster 1
+High-income customers with high spending behavior and strong customer value.
+
+### Cluster 2
+Low-income customers with high spending behavior and strong buying interest.
+
+### Cluster 3
+High-income customers with low spending behavior who may need targeted offers.
+
+### Cluster 4
+Low-income customers with low spending behavior and limited purchasing activity.
+
+## Project Features
+
+- Customer data analysis
+- K-Means clustering
+- Elbow Method visualization
+- Customer cluster visualization
+- Silhouette Score evaluation
+- Trained model saving
+- Flask web dashboard
+- New customer cluster prediction
+- Customer segment descriptions
+
+## Project Structure
+
+```text
+un-supervised learning
 │
-├── dataset/
-│   └── dataset.csv
+├── dataset
+│   └── Mall_Customers.csv
 │
-├── Unsupervised_Learning.ipynb
+├── model
+│   ├── model.pkl
+│   └── features.pkl
+│
+├── static
+│   ├── elbow_method.png
+│   └── customer_clusters.png
+│
+├── templates
+│   └── index.html
+│
+├── app.py
+├── model.py
 ├── README.md
 └── requirements.txt
-8. Applications
-
-Unsupervised Learning can be used in:
-
-Customer Segmentation
-Market Analysis
-Recommendation Systems
-Anomaly Detection
-Image Segmentation
-Pattern Recognition
-Data Analysis
-9. Future Improvements
-
-The project can be improved by:
-
-Using different clustering algorithms.
-Testing different datasets.
-Adding more visualizations.
-Comparing K-Means with other algorithms.
-Building a web application for the project.
-10.Learning Outcomes
-
-Through this project, I learned:
-
-Basics of Unsupervised Learning
-K-Means Clustering
-Data Preprocessing
-Data Visualization
-Python for Machine Learning
-Scikit-learn
-How to analyze unlabeled data
-👨‍💻 Author
-
-Pranshu Tyagi
-
-B.Tech – Computer Science and Engineering
