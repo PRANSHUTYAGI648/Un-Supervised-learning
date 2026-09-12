@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Segmentation Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .header p {
+            margin-top: 8px;
+            font-size: 17px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 30px auto;
+        }
+
+        .dashboard-info {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background-color: white;
+            width: 200px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            font-size: 25px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .prediction-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .prediction-box h2 {
+            margin-top: 0;
+        }
+
+        input {
+            width: 80%;
+            max-width: 400px;
+            padding: 12px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 6px;
+            background-color: #2563eb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border-radius: 6px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .graph-box {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .graph-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .segments-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .segments-box h2 {
+            text-align: center;
+        }
+
+        .segments {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .segment {
+            width: 180px;
+            padding: 18px;
+            background-color: #f9fafb;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .segment h3 {
+            margin-top: 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1f2937;
+            color: white;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+
+            .header h1 {
+                font-size: 25px;
+            }
+
+            .container {
+                width: 94%;
+            }
+
+            .info-card {
+                width: 100%;
+            }
+
+            .segment {
+                width: 100%;
+            }
+
+            input {
+                width: 90%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+
+        <h1>Customer Segmentation Dashboard</h1>
+
+        <p>Customer Segmentation using K-Means Clustering</p>
+
+    </div>
+
+
+    <div class="container">
+
+
+        <!-- Dashboard Information -->
+
+        <div class="dashboard-info">
+
+            <div class="info-card">
+
+                <h3>Total Customers</h3>
+
+                <p>200</p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>Total Clusters</h3>
+
+                <p>5</p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>Algorithm</h3>
+
+                <p>K-Means</p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>Silhouette Score</h3>
+
+                <p>0.55</p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Prediction Section -->
+
+        <div class="prediction-box">
+
+            <h2>Predict Customer Cluster</h2>
+
+            <p>
+                Enter customer income and spending score
+                to predict the customer segment.
+            </p>
+
+
+            <form action="/predict" method="POST">
+
+                <input
+                    type="number"
+                    step="any"
+                    name="income"
+                    placeholder="Annual Income (k$)"
+                    required
+                >
+
+
+                <input
+                    type="number"
+                    step="any"
+                    name="spending"
+                    placeholder="Spending Score (1-100)"
+                    required
+                >
+
+
+                <br>
+
+
+                <button type="submit">
+                    Predict Cluster
+                </button>
+
+            </form>
+
+
+            {% if prediction %}
+
+                <div class="result">
+
+                    {{ prediction }}
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- Cluster Graph -->
+
+        <div class="graph-box">
+
+            <h2>Customer Cluster Visualization</h2>
+
+            <img
+                src="{{ url_for('static', filename='customer_clusters.png') }}"
+                alt="Customer Cluster Visualization"
+            >
+
+        </div>
+
+
+        <!-- Cluster Information -->
+
+        <div class="segments-box">
+
+            <h2>Customer Segments</h2>
+
+
+            <div class="segments">
+
+
+                <div class="segment">
+
+                    <h3>Cluster 0</h3>
+
+                    <p>
+                        Medium-income customers with moderatespending behavior.
+                    </p>
+
+                </div>
+
+
+                <div class="segment">
+
+                    <h3>Cluster 1</h3>
+
+                    <p>
+                        High-income customers with high spending behavior.
+                    </p>
+
+                </div>
+
+
+                <div class="segment">
+
+                    <h3>Cluster 2</h3>
+
+                    <p>
+                        Low-income customers with high spending behavior.
+                    </p>
+
+                </div>
+
+
+                <div class="segment">
+
+                    <h3>Cluster 3</h3>
+
+                    <p>
+                        High-income customers with high spending behavior and who may need targeted offers
+            
+                    </p>
+
+                </div>
+
+
+                <div class="segment">
+
+                    <h3>Cluster 4</h3>
+
+                    <p>
+                        Low-income customers with low spending behavior and limited purchasing activity.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer">
+
+        <p>
+            Customer Segmentation using K-Means Clustering
+        </p>
+
+        <p>
+            Machine Learning Project
+        </p>
+
+    </div>
+
+
+</body>
+
+</html>
